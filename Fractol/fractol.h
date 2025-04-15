@@ -14,33 +14,23 @@
 
 typedef struct	s_img
 {
-	void	*img_ptr; //pointer to image struct
-	char	*pixels_ptr; //points to the actual pixels
-	int		bpp; // bits por pixel
+	void	*img_ptr;
+	char	*pixels_ptr;
+	int		bpp;
 	int		endian;
 	int		line_len;
 }				t_img;
 
-
-/*
- * FRACTAL ID
- * ~ MLX stuff
- * ~ Image
- * ~ Hooks values
-*/
 typedef struct	s_fractal
 {
 	int	type;
 	char	*name;
-	//MLX
-	void	*mlx_connection; // mlx_init()
-	void	*mlx_win; 	 // mlx_new_window()
-	//Image
+	void	*mlx_connection;
+	void	*mlx_win;
 	t_img	*img;
 
-	//Hooks member variables //TODO
-	double	escape_value; // hypotenuse
-	int		iterations_defintion; // value tight with the image quality and rendering speed
+	double	escape_value;
+	int		iterations_defintion;
 	double	shift_x;
 	double	shift_y;
 	double	zoom;
@@ -48,31 +38,23 @@ typedef struct	s_fractal
 	double	julia_c_img;
 }				t_fractal;
 
-
-typedef struct s_fractol
-{
-	void	*mlx_connection;
-	void	*mlx_win;
-	t_img	*img;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-
-	int		type; // 1: Mandelbrot, 2: Julia
-	char	*name;
-	double	c_re;
-	double	c_im;
-	double	x_min;
-	double	x_max;
-	double	y_min;
-	double	y_max;
-	int		max_iter;
-}	t_fractol;
 /*main.c*/
 void help_message(void);
 int	validate_args(int argc, char **argv, t_fractal *fractal);
 
 /*utils.c*/
 double	ft_atof(const char *str);
+
+/*hooks*/
+
+
+/*render*/
+void fractal_render(t_fractal *fractal);
+double map_rescaled(int px, double min, double max, int screen_size);
+
+
+/*pixels*/
+int	get_color_from_iteration(int i, int max_iter);
+void	put_pixel(t_img *img, int x, int y, int color);
+
 #endif
