@@ -30,7 +30,7 @@ typedef struct	s_fractal
 	t_img	*img;
 
 	double	escape_value;
-	int		iterations_defintion;
+	int		max_int;
 	double	shift_x;
 	double	shift_y;
 	double	zoom;
@@ -57,4 +57,6 @@ double map_rescaled(int px, double min, double max, int screen_size);
 int	get_color_from_iteration(int i, int max_iter);
 void	put_pixel(t_img *img, int x, int y, int color);
 
+/*fractol.c*/
+void	fractal_init(t_fractal *fractal);
 #endif
