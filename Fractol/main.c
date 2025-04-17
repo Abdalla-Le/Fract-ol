@@ -2,14 +2,14 @@
 
 int	main(int argc, char **argv)
 {
-	t_fractal	*fractal;
+	t_fractal	*fractal = NULL;
 
 	if (!validate_args(argc, argv, fractal))
 	{
 		help_message();
 		return (0);
 	}
-	fractal_intit(fractal);
+	fractal_init(fractal);
 }
 
 

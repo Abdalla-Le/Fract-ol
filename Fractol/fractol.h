@@ -23,11 +23,12 @@ typedef struct	s_img
 
 typedef struct	s_fractal
 {
-	int	type;
+	int		type;
 	char	*name;
 	void	*mlx_connection;
 	void	*mlx_win;
 	t_img	*img;
+
 
 	double	escape_value;
 	int		max_int;
@@ -51,6 +52,7 @@ double	ft_atof(const char *str);
 /*render*/
 void fractal_render(t_fractal *fractal);
 double map_rescaled(int px, double min, double max, int screen_size);
+int count_num_interactions(t_fractal *fractal,int x, int y);
 
 
 /*pixels*/

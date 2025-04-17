@@ -7,7 +7,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 PRINTFDIR = Printf
 LIBFTDIR = $(PRINTFDIR)/libft
 
-SRCS =  utils.c main.c
+SRCS =  utils.c main.c pixels.c render.c fractal.c
 OBJS = $(SRCS:.c=.o)
 
 PRINTF = $(PRINTFDIR)/libftprintf.a

@@ -6,7 +6,7 @@
 /*   By: lnovis-a <lnovis-a@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 16:45:58 by lnovis-a          #+#    #+#             */
-/*   Updated: 2025/04/16 16:46:20 by lnovis-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 21:08:48 by lnovis-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void fractal_render(t_fractal *fractal)
 	mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_win,\
 		fractal->img->img_ptr, 0, 0);
 }
-int count_num_interactions(t_fractal *fractal,int x, int y)
+int count_num_interactions(t_fractal *fractal, int x, int y)
 {
 	double c_re_x;
 	double c_img_y;
@@ -51,22 +51,25 @@ int count_num_interactions(t_fractal *fractal,int x, int y)
 	i = 0;
 	c_img_y = 0.0;
 	c_re_x = 0.0;
+	z_re_x = 0.0;
+	z_img_y = 0.0;
 	if (fractal->type == 1)
 	{
 		c_re_x = map_rescaled(c_re_x, fractal->shift_x - fractal->zoom, fractal->shift_x + fractal->zoom, WIDTH);
 		c_img_y = map_rescaled(c_img_y, fractal->shift_y - fractal->zoom, fractal->shift_y + fractal->zoom, HEIGTH);
 	}
-	else if (fractal->type == 2)
+	else
 	{
 		c_re_x = fractal->julia_c_re;
 		c_img_y = fractal->julia_c_img;
 		z_re_x = map_rescaled(x, fractal->shift_x - fractal->zoom, fractal->shift_x + fractal->zoom, WIDTH);
 		z_img_y = map_rescaled(y, fractal->shift_y - fractal->zoom, fractal->shift_y + fractal->zoom, HEIGTH);
 	}
-	while ((z_re_x * z_re_x )+ (z_img_y * z_img_y)<= 4 && i < fractal->max_int) {
+	while ((z_re_x * z_re_x )+ (z_img_y * z_img_y)<= 4 && i < fractal->max_int)
+	{
 		double z_re_tmp = z_re_x;
-		z_re_x = z_re_x * z_re_x - z_img_y * z_img_y + c_re_x;
-		z_img_y = 2 * z_re_tmp * z_img_y + c_img_y;
+		z_re_x = (z_re_x * z_re_x) - (z_img_y * z_img_y)+ c_re_x;
+		z_img_y = 2 * (z_re_tmp * z_img_y) + c_img_y;
 		i++;
 	}
 	return (i);
