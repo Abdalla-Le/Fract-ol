@@ -11,6 +11,7 @@
 
 #define WIDTH 800
 #define HEIGTH 800
+#define MAX_INT 300
 
 typedef struct	s_img
 {
@@ -61,4 +62,6 @@ void	put_pixel(t_img *img, int x, int y, int color);
 
 /*fractol.c*/
 void	fractal_init(t_fractal *fractal);
+void	init_values(t_fractal *fractal);
+
 #endif

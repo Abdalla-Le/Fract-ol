@@ -1,4 +1,3 @@
-
 NAME = fractol
 
 CC = cc
@@ -6,14 +5,15 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 PRINTFDIR = Printf
 LIBFTDIR = $(PRINTFDIR)/libft
+MLXDIR = minilibx
 
 SRCS =  utils.c main.c pixels.c render.c fractal.c
 OBJS = $(SRCS:.c=.o)
 
 PRINTF = $(PRINTFDIR)/libftprintf.a
 
-INCLUDES = -I$(PRINTFDIR) -I$(LIBFTDIR)
-LIBS = -L$(PRINTFDIR) -lftprintf
+INCLUDES = -I$(PRINTFDIR) -I$(LIBFTDIR) -I$(MLXDIR)
+LIBS = -L$(PRINTFDIR) -lftprintf -L$(MLXDIR) -lmlx -lXext -lX11 -lm
 
 all: $(PRINTF) $(OBJS) $(NAME)
 
