@@ -16,8 +16,10 @@ int	close_fractal(t_fractal *fractal)
 	exit(0);
 	return (0);
 }
-int	handle_mouse(int button, t_fractal *fractal)
+int	handle_mouse(int button, int x, int y, t_fractal *fractal)
 {
+	(void)x;
+	(void)y;
 	if (button == 4) // scroll up = zoom in
 		fractal->zoom *= 0.8;
 	else if (button == 5) // scroll down = zoom out

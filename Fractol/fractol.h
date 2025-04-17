@@ -11,7 +11,7 @@
 
 #define WIDTH 600
 #define HEIGTH 600
-#define MAX_INT 300
+#define MAX_INT 100
 
 typedef struct	s_img
 {
@@ -49,7 +49,7 @@ double	ft_atof(const char *str);
 
 /*hooks*/
 int	close_fractal(t_fractal *fractal);
-int	handle_mouse(int button, t_fractal *fractal);
+int	handle_mouse(int button, int x, int y, t_fractal *fractal);
 
 /*render*/
 void fractal_render(t_fractal *fractal);
