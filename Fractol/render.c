@@ -6,7 +6,7 @@
 /*   By: lnovis-a <lnovis-a@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 16:45:58 by lnovis-a          #+#    #+#             */
-/*   Updated: 2025/04/16 21:08:48 by lnovis-a         ###   ########.fr       */
+/*   Updated: 2025/04/17 16:57:38 by lnovis-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,10 @@ int count_num_interactions(t_fractal *fractal, int x, int y)
 	z_img_y = 0.0;
 	if (fractal->type == 1)
 	{
-		c_re_x = map_rescaled(c_re_x, fractal->shift_x - fractal->zoom, fractal->shift_x + fractal->zoom, WIDTH);
-		c_img_y = map_rescaled(c_img_y, fractal->shift_y - fractal->zoom, fractal->shift_y + fractal->zoom, HEIGTH);
+		c_re_x = map_rescaled(x, fractal->shift_x - fractal->zoom, fractal->shift_x + fractal->zoom, WIDTH);
+		c_img_y = map_rescaled(y, fractal->shift_y - fractal->zoom, fractal->shift_y + fractal->zoom, HEIGTH);
+		z_re_x = 0.0;
+		z_img_y = 0.0;
 	}
 	else
 	{

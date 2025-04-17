@@ -7,7 +7,7 @@ PRINTFDIR = Printf
 LIBFTDIR = $(PRINTFDIR)/libft
 MLXDIR = minilibx
 
-SRCS =  utils.c main.c pixels.c render.c fractal.c
+SRCS =  utils.c main.c pixels.c render.c fractal.c hooks.c
 OBJS = $(SRCS:.c=.o)
 
 PRINTF = $(PRINTFDIR)/libftprintf.a

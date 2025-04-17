@@ -2,7 +2,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_fractal	*fractal = NULL;
+	t_fractal *fractal = malloc(sizeof(t_fractal));
 
 	if (!validate_args(argc, argv, fractal))
 	{
@@ -11,12 +11,15 @@ int	main(int argc, char **argv)
 	}
 	fractal_init(fractal);
 	fractal_render(fractal);
+	mlx_mouse_hook(fractal->mlx_win, handle_mouse, fractal);
+	mlx_hook(fractal->mlx_win, 17, 0, close_fractal, fractal);
+	mlx_loop(fractal->mlx_connection);
 }
 
 
 void help_message(void)
 {
-	ft_printf("<julia> <real> <imag> or <mandelbrot>");
+	ft_printf("Usage: <julia> <real> <imag> || <mandelbrot>");
 	exit(1);
 }
 

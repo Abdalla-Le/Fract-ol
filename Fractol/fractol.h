@@ -9,8 +9,8 @@
 #include "minilibx/mlx.h"
 #include "Printf/ft_printf.h"
 
-#define WIDTH 800
-#define HEIGTH 800
+#define WIDTH 600
+#define HEIGTH 600
 #define MAX_INT 300
 
 typedef struct	s_img
@@ -48,7 +48,8 @@ int	validate_args(int argc, char **argv, t_fractal *fractal);
 double	ft_atof(const char *str);
 
 /*hooks*/
-
+int	close_fractal(t_fractal *fractal);
+int	handle_mouse(int button, t_fractal *fractal);
 
 /*render*/
 void fractal_render(t_fractal *fractal);
