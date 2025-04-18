@@ -24,6 +24,8 @@ void fractal_render(t_fractal *fractal)
 	int i;
 	int color;
 
+	color = 0;
+	i = 0;
 	y = 0;
 	while(y < HEIGTH)
 	{

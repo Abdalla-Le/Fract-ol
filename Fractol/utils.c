@@ -37,3 +37,30 @@ double	ft_atof(const char *str)
 	}
 	return (result * sign);
 }
+
+int	is_valid_float(char *str)
+{
+	int	i = 0;
+	int	has_dot = 0;
+
+	// aceita sinal no início
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+
+	if (str[i] == '\0') // só sinal, sem número
+		return (0);
+
+	while (str[i])
+	{
+		if (str[i] == '.')
+		{
+			if (has_dot) // já tem um ponto?
+				return (0);
+			has_dot = 1;
+		}
+		else if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}

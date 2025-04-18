@@ -41,6 +41,9 @@ int	get_color_from_iteration(int i, int max_iter, int color_mode)
 	int	g;
 	int	b;
 
+	r = 0;
+	g = 0;
+	b = 0;
 	if (i == max_iter)
 		return (0x000000);
 	if (color_mode == 0)

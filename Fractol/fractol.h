@@ -54,6 +54,7 @@ int	validate_args(int argc, char **argv, t_fractal *fractal);
 
 /*utils.c*/
 double	ft_atof(const char *str);
+int	is_valid_float(char *str);
 
 /*hooks*/
 int	close_fractal(t_fractal *fractal);

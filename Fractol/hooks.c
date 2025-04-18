@@ -32,7 +32,7 @@ int	handle_mouse(int button, int x, int y, t_fractal *fractal)
 int	handle_key(int keysym, t_fractal *fractal)
 {
 	if (keysym == KEY_ESC)
-		exit(0);
+		close_fractal(fractal);
 	else if (keysym == KEY_LEFT)
 		fractal->shift_x -= MOVE_FACTOR * fractal->zoom;
 	else if (keysym == KEY_RIGHT)

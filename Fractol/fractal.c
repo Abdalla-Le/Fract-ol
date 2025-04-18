@@ -46,8 +46,7 @@ void init_values(t_fractal *fractal)
 	fractal->max_int = MAX_INT;
 	fractal->shift_x = 0;
 	fractal->shift_y = 0;
-	fractal->zoom = 1.8;
-	fractal->type = 0;
+	fractal->zoom = 1.0;
 }
 void	fractal_init(t_fractal *fractal)
 {
