@@ -2,7 +2,6 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-#include <stdio.h> // apagar dps
 #include <stdlib.h>
 #include <unistd.h>
 #include <math.h>
@@ -11,7 +10,16 @@
 
 #define WIDTH 600
 #define HEIGTH 600
-#define MAX_INT 100
+#define MAX_INT 800
+#define MOVE_FACTOR 0.1
+#define ZOOM_IN 0.9
+#define ZOOM_OUT 1.1
+#define KEY_ESC 65307
+#define KEY_LEFT 65361
+#define KEY_RIGHT 65363
+#define KEY_UP 65362
+#define KEY_DOWN 65364
+#define KEY_TAB 65289
 
 typedef struct	s_img
 {
@@ -29,7 +37,7 @@ typedef struct	s_fractal
 	void	*mlx_connection;
 	void	*mlx_win;
 	t_img	*img;
-
+	int 	color_mode;
 
 	double	escape_value;
 	int		max_int;
@@ -50,6 +58,7 @@ double	ft_atof(const char *str);
 /*hooks*/
 int	close_fractal(t_fractal *fractal);
 int	handle_mouse(int button, int x, int y, t_fractal *fractal);
+int	handle_key(int keysym, t_fractal *fractal);
 
 /*render*/
 void fractal_render(t_fractal *fractal);
@@ -58,11 +67,11 @@ int count_num_interactions(t_fractal *fractal,int x, int y);
 
 
 /*pixels*/
-int	get_color_from_iteration(int i, int max_iter);
+int		get_color_from_iteration(int i, int max_iter, int color_mode);
 void	put_pixel(t_img *img, int x, int y, int color);
 
 /*fractol.c*/
 void	fractal_init(t_fractal *fractal);
-void	init_values(t_fractal *fractal);
+
 
 #endif

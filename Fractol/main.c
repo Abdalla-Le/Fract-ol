@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lnovis-a <lnovis-a@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/17 20:54:45 by lnovis-a          #+#    #+#             */
+/*   Updated: 2025/04/17 20:54:46 by lnovis-a         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 int	main(int argc, char **argv)
@@ -12,10 +24,10 @@ int	main(int argc, char **argv)
 	fractal_init(fractal);
 	fractal_render(fractal);
 	mlx_mouse_hook(fractal->mlx_win, handle_mouse, fractal);
+	mlx_key_hook(fractal->mlx_win, handle_key, fractal);
 	mlx_hook(fractal->mlx_win, 17, 0, close_fractal, fractal);
 	mlx_loop(fractal->mlx_connection);
 }
-
 
 void help_message(void)
 {

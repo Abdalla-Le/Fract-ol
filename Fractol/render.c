@@ -6,7 +6,7 @@
 /*   By: lnovis-a <lnovis-a@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 16:45:58 by lnovis-a          #+#    #+#             */
-/*   Updated: 2025/04/17 16:57:38 by lnovis-a         ###   ########.fr       */
+/*   Updated: 2025/04/17 20:54:52 by lnovis-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void fractal_render(t_fractal *fractal)
 		while(x < WIDTH)
 		{
 			i = count_num_interactions(fractal, x, y);
-			color = get_color_from_iteration(i, fractal->max_int);
+			color = get_color_from_iteration(i, fractal->max_int, fractal->color_mode);
 			put_pixel(fractal->img, x, y,color);
 			x++;
 		}
