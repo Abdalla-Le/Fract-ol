@@ -14,7 +14,7 @@
 
 static	void malloc_error(void)
 {
-	perror("problems with malloc");
+	ft_putstr_fd("problems with malloc", 2);
 	exit(EXIT_FAILURE);
 }
 
@@ -41,7 +41,7 @@ static void	init_img(t_fractal *fractal)
 			&fractal->img->bpp, &fractal->img->line_len, &fractal->img->endian);
 }
 
-static void init_values(t_fractal *fractal)
+void init_values(t_fractal *fractal)
 {
 	fractal->max_int = MAX_INT;
 	fractal->shift_x = 0;

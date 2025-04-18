@@ -10,7 +10,7 @@
 
 #define WIDTH 600
 #define HEIGTH 600
-#define MAX_INT 800
+#define MAX_INT 100
 #define MOVE_FACTOR 0.1
 #define ZOOM_IN 0.9
 #define ZOOM_OUT 1.1
@@ -72,6 +72,7 @@ void	put_pixel(t_img *img, int x, int y, int color);
 
 /*fractol.c*/
 void	fractal_init(t_fractal *fractal);
+void	init_values(t_fractal *fractal);
 
 
 #endif
